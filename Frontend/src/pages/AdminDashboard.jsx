@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 function AdminDashboard() {
+    const navigate = useNavigate()
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
@@ -64,11 +66,32 @@ function AdminDashboard() {
         }
 
     }
+    const handlelogout = async () => {
+        try {
 
+            await axios.get(
+                `${import.meta.env.VITE_API_URL}/logout`,
+                { withCredentials: true }
+            )
+
+
+            navigate("/")
+
+        } catch (error) {
+
+            console.log(error)
+
+
+        }
+    }
     return (
         <div>
-
-            <h1>Register</h1>
+            <div className='bg-blue-600 py-4 px-4 m-4 rounded shadow-md text-center text-white flex justify-between items-center'>
+                <h1 className='text-3xl'>Admin Dashboard</h1>
+                <button onClick={handlelogout} className='bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 cursor-pointer'>
+                    Logout
+                </button>
+            </div>
 
             <input
                 type="text"
@@ -99,6 +122,7 @@ function AdminDashboard() {
             />
 
             <button onClick={handleregistar}>Register</button>
+            
 
             <h3>{message}</h3>
 
