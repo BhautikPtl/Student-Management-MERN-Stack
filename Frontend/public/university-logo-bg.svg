@@ -1,0 +1,35 @@
+<svg width="1800" height="1100" viewBox="0 0 1800 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1800" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2F8FF"/>
+      <stop offset="1" stop-color="#E6F0FF"/>
+    </linearGradient>
+    <symbol id="emblem" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="72" fill="#EAF2FF" stroke="#86A9E6" stroke-width="4"/>
+      <path d="M80 34L120 52V78C120 104 101 126 80 134C59 126 40 104 40 78V52L80 34Z" fill="#B9D2FF" stroke="#5D85CC" stroke-width="3"/>
+      <path d="M58 76H102" stroke="#4A6FB2" stroke-width="4" stroke-linecap="round"/>
+      <path d="M80 58V98" stroke="#4A6FB2" stroke-width="4" stroke-linecap="round"/>
+      <path d="M52 108C68 98 92 98 108 108" stroke="#4A6FB2" stroke-width="4" stroke-linecap="round"/>
+      <path d="M72 34L80 24L88 34" fill="#FFD37A"/>
+      <circle cx="80" cy="24" r="4" fill="#F7B731"/>
+    </symbol>
+  </defs>
+
+  <rect width="1800" height="1100" fill="url(#bg)"/>
+  <g opacity="0.23">
+    <use href="#emblem" x="120" y="80" width="170" height="170"/>
+    <use href="#emblem" x="520" y="120" width="170" height="170"/>
+    <use href="#emblem" x="920" y="70" width="170" height="170"/>
+    <use href="#emblem" x="1320" y="120" width="170" height="170"/>
+    <use href="#emblem" x="280" y="420" width="170" height="170"/>
+    <use href="#emblem" x="700" y="390" width="170" height="170"/>
+    <use href="#emblem" x="1120" y="430" width="170" height="170"/>
+    <use href="#emblem" x="1520" y="380" width="170" height="170"/>
+    <use href="#emblem" x="120" y="760" width="170" height="170"/>
+    <use href="#emblem" x="520" y="780" width="170" height="170"/>
+    <use href="#emblem" x="920" y="740" width="170" height="170"/>
+    <use href="#emblem" x="1320" y="790" width="170" height="170"/>
+  </g>
+
+  <path d="M0 870C220 790 420 900 670 860C920 820 1090 690 1360 740C1560 778 1680 910 1800 900V1100H0V870Z" fill="#DCE9FF" opacity="0.8"/>
+</svg>

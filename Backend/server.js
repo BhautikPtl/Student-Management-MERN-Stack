@@ -25,7 +25,14 @@ app.post("/registar", async (req, res) => {
     const enroll = await userSchema.findOne({ enrollment });
 
     if (enroll) {
-        return res.status(400).json({ message: "Already use this enrollment number" });
+        return res.status(400).json({ message: "Enrollment number already exists" });
+    }
+    if (!enrollment || !email || !password || !name) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    if(!email.includes("@") || !email.includes(".")){
+        return res.status(400).json({ message: "Invalid email format" });
     }
 
 
@@ -62,7 +69,7 @@ app.post("/login", async (req, res) => {
 
 
     const ismatch = await bcrypt.compare(password, user.password);
-    if (!ismatch) return res.status(401).json({ message: "invaild Enrollment Number & password" })
+    if (!ismatch) return res.status(401).json({ message: "Invalid Enrollment Number & Password" });
 
     const token = jwt.sign({ id: user._id, role: user.role }, process.env.SECRET, { expiresIn: "1d" });
 
@@ -100,6 +107,14 @@ app.get("/student-dashboard", protect, async (req, res) => {
 
 })
 
+app.delete("/delete-student/:id", protect, adminonly, async (req, res) => {
+
+    const { id } = req.params;
+
+    await userSchema.findByIdAndDelete(id);
+
+    res.status(200).json({ message: "Student deleted successfully" });
+});
 
 app.listen(3000, () => {
     console.log("Server is runing on port http://localhost:3000");
