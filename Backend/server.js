@@ -11,7 +11,10 @@ require("dotenv").config();
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+    // https://79a7-2409-40c1-2155-dd2-9d19-d440-db95-d42b.ngrok-free.app
+    ],
     credentials: true
 }));
 
