@@ -106,7 +106,7 @@ function AdminDashboard() {
 
     }
 
-    const handleview = async (id)=>{
+    const handleview = async (id) => {
         try {
             navigate(`/view/${id}`)
         } catch (error) {
@@ -137,7 +137,7 @@ function AdminDashboard() {
                     </button>
                 </div>
 
-                <div className='mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 justify-content flex items-center gap-4 rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-xl backdrop-blur'>
+                <div className='mb-6 grid grid-cols-1 items-center gap-4 rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-xl backdrop-blur md:grid-cols-2'>
                     <div className='flex flex-col gap-2'>
                         <p className='text-xs font-semibold uppercase tracking-wider text-slate-500'>Total Students</p>
                         <h2 className='mt-2 text-3xl font-black text-blue-700'>{student.length}</h2>
@@ -199,7 +199,7 @@ function AdminDashboard() {
 
                         <div>
                             {student.filter((s) => s.name.toLowerCase().includes(searchTerm.toLowerCase())).map((s) => (
-                                <div key={s._id} className='mb-3 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm md:grid md:grid-cols-[1fr_1fr_1fr_auto] md:items-center md:gap-3 '>
+                                <div key={s._id} className='mb-3 rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm md:grid md:grid-cols-3 md:gap-3'>
                                     <h1 className='text-sm font-bold text-slate-800 md:text-base'>
                                         <span className='md:hidden'>Name: </span>
                                         <span className='font-medium text-slate-600'>{s.name}</span>
@@ -212,14 +212,16 @@ function AdminDashboard() {
                                         <span className='md:hidden'>Enrollment: </span>
                                         <span className='font-medium text-slate-600'>{s.enrollment}</span>
                                     </h3>
-                                    <button className='mt-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:bg-red-700 md:mt-0 md:justify-self-end cursor:pointer'
-                                        onClick={() => handledelete(s._id)}>
-                                        Delete
-                                    </button>
-                                    <button className='mt-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:bg-red-700 md:mt-0 md:justify-self-end cursor:pointer'
-                                    onClick={()=> handleview(s._id)}>
-                                        View Details
-                                    </button>
+                                    <div className='mt-3 flex flex-wrap gap-2 md:col-span-3 md:justify-start'>
+                                        <button className='cursor-pointer rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:bg-red-700'
+                                            onClick={() => handledelete(s._id)}>
+                                            Delete
+                                        </button>
+                                        <button className='cursor-pointer rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:bg-blue-700'
+                                            onClick={() => handleview(s._id)}>
+                                            View Details
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
                         </div>

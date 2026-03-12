@@ -119,9 +119,10 @@ app.delete("/delete-student/:id", protect, adminonly, async (req, res) => {
 
 app.get("/view/:id",protect,adminonly,async(req,res)=>{
     
-
+    const {id}=req.params
     
-     const user = await userSchema.findOne(req.params);
+     const user = await userSchema.findById(id);
+    
 
      res.status(200).json({student :user, message:"View Student Successfully"})
 })
