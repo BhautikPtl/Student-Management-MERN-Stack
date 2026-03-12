@@ -116,6 +116,16 @@ app.delete("/delete-student/:id", protect, adminonly, async (req, res) => {
     res.status(200).json({ message: "Student deleted successfully" });
 });
 
+
+app.get("/view/:id",protect,adminonly,async(req,res)=>{
+    
+
+    
+     const user = await userSchema.findOne(req.params);
+
+     res.status(200).json({student :user, message:"View Student Successfully"})
+})
+
 app.listen(3000, () => {
     console.log("Server is runing on port http://localhost:3000");
 

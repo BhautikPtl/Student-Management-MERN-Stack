@@ -106,10 +106,17 @@ function AdminDashboard() {
 
     }
 
+    const handleview = async (id)=>{
+        try {
+            navigate(`/view/${id}`)
+        } catch (error) {
+            setMessage(error)
+        }
+    }
+
     return (
         <div className='relative min-h-screen overflow-hidden bg-[url("/university-logo-bg.svg")] bg-cover bg-center bg-no-repeat p-4 md:p-8'>
-            <div className='pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-cyan-200/50 blur-3xl' />
-            <div className='pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-blue-200/60 blur-3xl' />
+           
 
             {message && (
                 <div className='absolute right-4 top-4 z-50 md:right-8 md:top-8 flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-600 ring-1 ring-red-200 shadow'>
@@ -208,6 +215,10 @@ function AdminDashboard() {
                                     <button className='mt-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:bg-red-700 md:mt-0 md:justify-self-end cursor:pointer'
                                         onClick={() => handledelete(s._id)}>
                                         Delete
+                                    </button>
+                                    <button className='mt-2 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow transition duration-300 hover:bg-red-700 md:mt-0 md:justify-self-end cursor:pointer'
+                                    onClick={()=> handleview(s._id)}>
+                                        View Details
                                     </button>
                                 </div>
                             ))}

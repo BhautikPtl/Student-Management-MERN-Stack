@@ -4,6 +4,7 @@ import Login from "./pages/login"
 import PrivateRoute from './componets/PrivateRoute'
 import AdminDashboard from './pages/AdminDashboard'
 import StudentDashboard from './pages/StudentDashboard'
+import View from './pages/View'
 
 function App() {
   return (
@@ -26,6 +27,16 @@ function App() {
           element={
             <PrivateRoute url={"student-dashboard"}>
               <StudentDashboard />
+            </PrivateRoute>
+          }
+        />
+
+
+        <Route
+          path='/view/:id'
+          element={
+            <PrivateRoute url={"view/:id"}>
+              <View />
             </PrivateRoute>
           }
         />
